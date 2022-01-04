@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.freespirit.speedmeter.R;
 import com.freespirit.speedmeter.model.Speed;
 import com.freespirit.speedmeter.viewmodel.SpeedViewModel;
-w
+
 public class MainActivity extends AppCompatActivity {
     private TextView speedTextView;
     private TextView statusTextView;
@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         speedTextView  = findViewById(R.id.speedTextView);
         statusTextView = findViewById(R.id.statusTextView);
 
-        speedTextView.setTextColor(Color.parseColor("#1176C3"));
+        speedTextView.setTextColor(Color.parseColor("#36A899"));
         statusTextView.setTextColor(Color.parseColor("#1176C3"));
 
         statusTextView.setText("HC05 Connection: Established");
