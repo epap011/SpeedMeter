@@ -29,7 +29,7 @@ public class SpeedRepo {
     }
 
     public MutableLiveData<Speed> getSpeed() {
-        setSpeed("The velocity is : 0.0 km/hr");
+        setSpeed("0.0");
         speedData.setValue(speed);
         return speedData;
     }
@@ -65,7 +65,7 @@ public class SpeedRepo {
 
     public void initHC05Communication() {
         btAdapter = BluetoothAdapter.getDefaultAdapter();
-            hc05      = btAdapter.getRemoteDevice("00:21:13:01:3D:90");
+        hc05      = btAdapter.getRemoteDevice("00:21:13:01:26:EC");
         System.out.println("Devices: " + btAdapter.getBondedDevices());
         System.out.println("Device Name: " + hc05.getName());
 

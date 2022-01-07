@@ -9,7 +9,6 @@ import com.freespirit.speedmeter.repositories.SpeedRepo;
 
 public class SpeedViewModel extends ViewModel {
     private MutableLiveData<Speed> speedData;
-    private MutableLiveData<Boolean> bluetoothConnection;
     private SpeedRepo speedRepo;
 
     public void init() {
@@ -17,12 +16,7 @@ public class SpeedViewModel extends ViewModel {
         speedRepo = SpeedRepo.getInstance();
         speedRepo.initHC05Communication();
 
-        Runnable readingHC05 = new Runnable() {
-            @Override
-            public void run() {
-                    speedRepo.readHC05SpeedData();
-            }
-        };
+        Runnable readingHC05 = () -> speedRepo.readHC05SpeedData();
         Thread th1 = new Thread(readingHC05);
         th1.start();
 
@@ -33,9 +27,4 @@ public class SpeedViewModel extends ViewModel {
         if(speedData == null) speedData = new MutableLiveData<>();
         return speedData;
     }
-
-    public LiveData<Boolean> isBluetoothConnectionEstablished() {
-        return bluetoothConnection;
-    }
-
 }

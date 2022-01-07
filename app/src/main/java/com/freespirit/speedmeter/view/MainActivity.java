@@ -33,8 +33,7 @@ public class MainActivity extends AppCompatActivity {
         speedViewModel = new ViewModelProvider(this).get(SpeedViewModel.class);
         speedViewModel.init();
 
-        final Observer<Speed> speedObserver               = speed -> speedTextView.setText(speed.getSpeed());
-        //final Observer<Speed> BluetoothConnectionObserver = speed -> statusTextView.setText(String.getBluetoothConnection());
+        final Observer<Speed> speedObserver               = speed -> speedTextView.setText(speed.getSpeed() + " km/h");
 
         speedViewModel.getSpeedData().observe(this, speedObserver);
     }
